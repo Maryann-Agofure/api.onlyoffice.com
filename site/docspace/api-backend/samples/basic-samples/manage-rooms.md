@@ -22,14 +22,14 @@ This example demonstrates how to manage rooms in ONLYOFFICE DocSpace using the A
 
   // Headers with API key for authentication
   const HEADERS = {
-    Authorization: API_KEY, // если используете PAT, Bearer не нужен
-    // Authorization: `Bearer ${API_KEY}`, // вариант, если токен JWT
+    Authorization: API_KEY,
+    // Authorization: `Bearer ${API_KEY}`,
     'Content-Type': 'application/json',
   };
 
   // Step 1: Create a room
   async function createRoom(roomName, description) {
-    const url = `${BASE_URL}/api/2.0/files/rooms`; // исправлен путь
+    const url = `${BASE_URL}/api/2.0/files/rooms`;
     const res = await fetch(url, {
       method: 'POST',
       headers: HEADERS,
@@ -94,7 +94,7 @@ This example demonstrates how to manage rooms in ONLYOFFICE DocSpace using the A
     }
   }
 
-  // Run (пример)
+  // Run
   (async () => {
     const room_name = 'New Room';                // Replace with actual room name
     const description = 'This is a test room.';  // Replace with actual room description
@@ -106,7 +106,7 @@ This example demonstrates how to manage rooms in ONLYOFFICE DocSpace using the A
       await createRoom(room_name, description);
 
       // Step 2
-      await getRoomDetails(room_id); // вставьте актуальный ID
+      await getRoomDetails(room_id);
 
       // Step 3
       await renameRoom(room_id, new_room_name);
